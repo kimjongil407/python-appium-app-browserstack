@@ -4,36 +4,27 @@ from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-
 # Options are only available since client version 2.3.0
-# If you use an older client then switch to desired_capabilities
-# instead: https://github.com/appium/python-client/pull/720
 options = UiAutomator2Options().load_capabilities({
-    # Specify device and os_version for testing
-    "platformName" : "android",
-    "platformVersion" : "9.0",
-    "deviceName" : "Google Pixel 3",
-
     # Set URL of the application under test
-    "app" : "bs://<app-id>",
-
+    "app" : "bs://da85ca9da9f7ed779189c59a76d2e55b7ad8b048",
+    
+    # Specify device and os_version for testing
+    "platformVersion" : "9.0",
+    "deviceName" : "Google Pixel 3"
     # Set other BrowserStack capabilities
     'bstack:options' : {
         "projectName" : "First Python project",
         "buildName" : "browserstack-build-1",
         "sessionName" : "BStack first_test",
-
         # Set your access credentials
-        "userName" : "YOUR_USERNAME",
-        "accessKey" : "YOUR_ACCESS_KEY"
+        "userName" : "huavei_wfn8hQ",
+        "accessKey" : "1w8hc6ynLs6ZAG9yW79S"
     }
 })
-
 # Initialize the remote Webdriver using BrowserStack remote URL
 # and options defined above
 driver = webdriver.Remote("http://hub.browserstack.com/wd/hub", options=options)
-
-# Test case for the BrowserStack sample Android app.
 # If you have uploaded your app, update the test case here.
 search_element = WebDriverWait(driver, 30).until(
     EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia"))
